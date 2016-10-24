@@ -20,7 +20,31 @@
     "babel-eslint": "^7.0.0",
     "backbone": "^1.3.3",
     "backbone.localstorage": "^1.1.16",
+    "body-parser": "^1.15.2",
+    "error-handler": "^1.0.0",
+    "express": "^4.14.0",
     "jquery": "^3.1.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.6.4",
+    "path": "^0.12.7",
     "underscore": "^1.8.3"
   }
 }
+
+$.ajax({
+    url : '/api/books',
+    type: "POST",
+    data: JSON.stringify({
+      "title":"secrets of a js ninja",
+      "author":"gcarr",
+       "releaseDate":new Date(2008,3,12).getTime(),
+       "keywords":[
+         {"keyword":"first"}, {"keyword":"second"}
+       ]
+      }),
+    contentType: "application/json; charset=utf-8",
+    dataType   : "json",
+    success    : function(data){
+  debugger;      
+    }
+});
