@@ -1,8 +1,9 @@
-# backbone_tutorial
+# Backbone Tutorial Chapter 6
 
-# Getting started
+Marionette served up by webpack
 
+## Get started
 ```
 npm install
-grunt
+webpack-dev-server --progress -d
 ```
