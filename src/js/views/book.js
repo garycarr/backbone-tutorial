@@ -3,9 +3,14 @@ import Moment from 'moment';
 import template from '../../templates/book.hbs';
 
 export default Marionette.View.extend({
+    initialize: function () {
+        // Listen to changes on the model.
+        // this.listenTo(this.model, 'change', this.render);
+    },
+
     templateContext: function () {
         return {
-            cid: this.model.cid,
+            id: this.model.id,
             releaseDate: Moment.unix(this.model.get('releaseDate')).format('DD MMM YYYY HH:mm:ss')
         };
     },

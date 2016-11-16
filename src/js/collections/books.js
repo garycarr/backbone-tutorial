@@ -8,5 +8,10 @@ import Book from './../models/book';
  * @module consumer/collections/context_members
  */
 export default Collection.extend({
-    model: Book
+    url: 'api/book',
+    model: Book,
+    initialize: function () {
+        this.on('add', function () {});
+        this.on('destroy', function () {});
+    }
 });

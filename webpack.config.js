@@ -1,6 +1,7 @@
 let OpenBrowserPlugin = require('open-browser-webpack-plugin');
 let dirName = __dirname;  // eslint-disable-line
 
+
 module.exports = {
     entry: './src/index.js',
     output: {
@@ -8,6 +9,13 @@ module.exports = {
         filename: 'bundle.js'
     },
     module: {
+        preLoaders: [
+            {
+                test: /\.js$/,
+                loader: 'eslint-loader',
+                exclude: /node_modules/
+            }
+        ],
         loaders: [
             {
                 test: /\.css$/,
@@ -32,5 +40,12 @@ module.exports = {
     },
     plugins: [
         new OpenBrowserPlugin({ url: 'http://localhost:8080/webpack-dev-server/bundle' })
-    ]
+    ],
+    devServer: {
+        // historyApiFallback: true,
+        // port: 5000,
+        proxy: {
+            '/api/*': 'http://localhost:5000/'
+        }
+    }
 };
