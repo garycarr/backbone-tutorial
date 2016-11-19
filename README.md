@@ -5,5 +5,7 @@ Marionette served up by webpack
 ## Get started
 ```
 npm install
-webpack-dev-server --progress -d
+// TODO - combine test and start
+npm test // runs and watches karma tests
+npm start // starts webpack and watches the files
 ```

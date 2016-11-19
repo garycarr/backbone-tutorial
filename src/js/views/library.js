@@ -20,7 +20,8 @@ export default Marionette.View.extend({
 
     events:{
         'click #add': 'addBook',
-        'click .delete': 'removeBook'
+        'click .delete': 'removeBook',
+        'click .edit': 'editBook'
     },
 
     regions: {
@@ -74,6 +75,15 @@ export default Marionette.View.extend({
         e.preventDefault();
         let bookID = e.currentTarget.getAttribute('data-id');
         this.collection.get(bookID).destroy();
+    },
+
+    editBook: function (e) {
+        e.preventDefault();
+        let bookID = e.currentTarget.getAttribute('data-id');
+        let book = this.collection.get(bookID);
+        let title = this.$el.find(`#${bookID} .book-title input`).val();
+        book.set('title', title);
+        book.save();
     },
 
     fakeBookDetails: function (elementID, formData) {

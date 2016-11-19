@@ -7,7 +7,10 @@ export default Marionette.View.extend({
         // Listen to changes on the model.
         // this.listenTo(this.model, 'change', this.render);
     },
-
+    tagName: 'form',
+    id: function () {
+        return this.model.id;
+    },
     templateContext: function () {
         return {
             id: this.model.id,

@@ -6,3 +6,5 @@ reports
 .env
 .npmrc
 npm-debug.log
+coverage
+./TESTS*

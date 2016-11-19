@@ -8,8 +8,8 @@ import { Model } from 'backbone';
  */
 export default Model.extend({
     initialize: function () {
-        // _.bindAll(this, 'render')
         this.on('change', this.render, this);
+        this.on('change:title', function () {});
     },
 
     defaults: {
@@ -18,6 +18,10 @@ export default Model.extend({
         author: 'Unknown',
         keywords: 'None'
     },
+
+    // TODO
+    // validate: function (attribs) {
+    // },
 
     idAttribute: '_id',
 

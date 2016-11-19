@@ -1,8 +1,11 @@
 <ul>
-  <li>Title: {{title}}</li>
+  <li class="book-title">
+    Title: <input type:"text" value="{{title}}"></input>
+  </li>
   <li>Author: {{author}}</li>
   <li>Release Date: {{releaseDate}}</li>
   <li>Keywords: {{keywords}}</li>
 </ul>
 
+<button class="edit" data-id="{{id}}">Edit</button>
 <button class="delete" data-id="{{id}}">Delete</button>
