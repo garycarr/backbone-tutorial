@@ -34,8 +34,5 @@ module.exports = {
                 }
             }
         ]
-    },
-    plugins: [
-        new OpenBrowserPlugin({ url: 'http://localhost:9876' })
-    ]
+    }
 };

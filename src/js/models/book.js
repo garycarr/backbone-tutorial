@@ -16,7 +16,8 @@ export default Model.extend({
         coverImage: 'img/placeholder.jpeg',
         title: 'No title',
         author: 'Unknown',
-        keywords: 'None'
+        keywords: 'None',
+        currentPage: 0
     },
 
     // TODO
@@ -31,5 +32,17 @@ export default Model.extend({
             url += this.id;
         }
         return url;
+    },
+    turnPages: function (pages) {
+        if (this._checkValidPages(pages)) {
+            this.set('currentPage', this.get('currentPage') + pages);
+            return true;
+        }
+        return `Invalid input! ${pages}`;
+    },
+
+    // This is just a demo for jasmine spy. Can use validate methods
+    _checkValidPages: function (pages) {
+        return pages > 0;
     }
 });

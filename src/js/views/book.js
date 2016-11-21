@@ -5,9 +5,9 @@ import template from '../../templates/book.hbs';
 export default Marionette.View.extend({
     initialize: function () {
         // Listen to changes on the model.
-        // this.listenTo(this.model, 'change', this.render);
+        this.listenTo(this.model, 'change', this.render);
     },
-    tagName: 'form',
+    tagName: 'li',
     id: function () {
         return this.model.id;
     },

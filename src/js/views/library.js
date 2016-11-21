@@ -19,7 +19,7 @@ export default Marionette.View.extend({
     },
 
     events:{
-        'click #add': 'addBook',
+        'click #add': 'validateNewBook',
         'click .delete': 'removeBook',
         'click .edit': 'editBook'
     },
@@ -35,7 +35,7 @@ export default Marionette.View.extend({
         }));
     },
 
-    addBook: function (e) {
+    validateNewBook: function (e) {
         e.preventDefault();
         let formData = {},
             that = this;
@@ -58,18 +58,22 @@ export default Marionette.View.extend({
             }
         });
 
-        let book = new BookModel(formData);
+        this.addBook(new BookModel(formData), true);
+    },
+
+    addBook: function (book, asyncBool) {
+        let that = this;
         book.save({}, {
+            async: asyncBool,
             success: function (model) {
                 that.collection.add(model);
+
             },
             error: function () {
-                // console.log(xhr)
                 console.log('Something went wrong while saving the model');
             }
         });
     },
-
 
     removeBook: function (e) {
         e.preventDefault();

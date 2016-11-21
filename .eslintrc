@@ -183,7 +183,4 @@
         "prefer-template": 1,
         "require-yield": 2,
     }
-    # "plugins": [
-    #     "jasmine-jquery"
-    # ]
 }
